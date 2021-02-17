@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
 class MainViewModel(private val repo: Repo): ViewModel() {
-    var pageIndexMovie: Int = 2
+    var pageIndexMovie: Int = 1
     private lateinit var job:Job
     private var _fetchMoviesList = MutableLiveData<Resource<List<Movie>>>()
     val fetchMoviesList:LiveData<Resource<List<Movie>>>
@@ -23,16 +23,6 @@ class MainViewModel(private val repo: Repo): ViewModel() {
     fun setMovieIdData(movie_id: String){
         movieIdData.value = movie_id
     }
-
-
-
-//    private val pageIndexData = MutableLiveData<Int>()
-//    init {
-//        setPageIndexMovieData(2)
-//    }
-//    fun setPageIndexMovieData(page_index: Int){
-//        pageIndexData.value = page_index
-//    }
 //------------------------------------------------------------------------------
     fun refreshMovieList() {
         job = Coroutines.ioThenMain({
